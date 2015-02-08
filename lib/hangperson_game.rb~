@@ -23,6 +23,7 @@ class HangpersonGame
 
     return false if @guesses.include? char
     return false if @wrong_guesses.include? char
+    self.update_result
     if @word.include? char
       @guesses = @guesses + char
       for i in 0..@word.length
@@ -32,7 +33,6 @@ class HangpersonGame
       end
     end
     @wrong_guesses = @wrong_guesses + char if not @word.include? char
-    self.update_result
     return true
   end
 
